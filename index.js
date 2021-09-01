@@ -21,12 +21,15 @@ let User  = class {
 
 let person1 = "";
 let greet1 = document.createElement("p");
+let choice1 = document.createElement("p");
 
 startButton.addEventListener("click", function(e) {
     e.preventDefault();
     person1 = new User(userName.value);
     console.log(person1.greetUser());
     console.log(person1.choice());
-    //greet1.innerText = person1.greetUser();
-    //helloDiv.append(greet1);
+    greet1.innerText = person1.greetUser();
+    helloDiv.append(greet1);
+    choice1.innerText = person1.choice();
+    helloDiv.append(choice1);
 })
