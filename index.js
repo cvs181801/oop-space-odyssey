@@ -6,14 +6,13 @@ const helloDiv = document.querySelector(".hello__div");
 
 // create a way to make characters based on user input and choices. use ES6 syntax this time 
 
-class User {
+let User  = class {
     constructor(name) {
         this.name = name;
     }
     greetUser() {
       return `Hello, ${this.name}.  I'm PAL.`;
-    }
-       
+    }    
 }
 
 let person1 = "";
@@ -22,7 +21,8 @@ let greet1 = document.createElement("p");
 startButton.addEventListener("click", function(e) {
     e.preventDefault();
     person1 = new User(userName.value);
-    console.log(person1.greetUser);
+    console.log(person1.greetUser());
     //greet1.innerText = person1.greetUser();
+  
     //helloDiv.append(greet1);
 })
