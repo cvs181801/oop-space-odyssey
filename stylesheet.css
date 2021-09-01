@@ -16,6 +16,9 @@ body {
     color: var(--white-);
     margin: 0 auto;
     font-family: var(--ff-primary);
+    text-align: center;
+    align-content: center;
+    justify-content: center;
 }
 
 .hidden {
@@ -29,4 +32,9 @@ body {
     background-color: var(--pastelindigo);
     border-radius: 7px;
     font-family: inherit;
+}
+
+input {
+    font-family: inherit;
+
 }

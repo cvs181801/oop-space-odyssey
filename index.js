@@ -8,6 +8,7 @@ const liftOffBtn = document.getElementById("hello__liftoffbtn");
 //test area!
 
 // create a way to make characters based on user input and choices. use ES6 syntax this time 
+
 //start the journey:
 let User  = class {
     constructor(name, backgroundcolor, textcolor) {
@@ -40,4 +41,14 @@ startButton.addEventListener("click", function(e) {
     person1.choice();
 })
 
-//IM OK TO GO
+let Scene = class {
+    constructor(backgroundcolor, textcolor) { //use the super keyword
+        this.backgroundcolor = this.backgroundcolor;
+        this.textcolor = textcolor;
+    }
+}
+//add more content to class
+
+liftOffBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+})
