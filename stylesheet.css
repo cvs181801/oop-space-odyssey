@@ -1,6 +1,8 @@
 :root {
     --white-: ghostwhite;
     --black-: rgb(18, 18, 20);
+    --pastelindigo: rgb(216, 168, 250);
+    --ff-primary: 'Kaisei HarunoUmi', serif;
 }
 
 * {
@@ -13,4 +15,18 @@ body {
     background-color: var(--black-);
     color: var(--white-);
     margin: 0 auto;
+    font-family: var(--ff-primary);
+}
+
+.hidden {
+    display: none;
+}
+
+.startBtn,
+#hello__liftoffbtn,
+#hello__anomalybtn {
+    margin: 1em;
+    background-color: var(--pastelindigo);
+    border-radius: 7px;
+    font-family: inherit;
 }
