@@ -3,9 +3,12 @@ let body = document.querySelector("body");
 const userName = document.getElementById("name");
 const startButton = document.querySelector(".startBtn");
 const helloDiv = document.querySelector(".hello__div");
-const anomalyBtn = document.getElementById("hello__anomalybtn")
-const liftOffBtn = document.getElementById("hello__liftoffbtn");
-const paragraph = document.querySelector("p");
+const choiceABtn = document.getElementById("hello__liftoffbtn")
+const choiceBBtn = document.getElementById("hello__anomalybtn");
+const paragraph = document.querySelector(".hero__p");
+const header1 = document.querySelector("h1");
+const inputElement = document.querySelector("input");
+const photoCredit = document.createElement("p");
 
 //test area!
 console.log(document.body);
@@ -24,8 +27,8 @@ let User  = class {
     }    
 
     choice() {
-        anomalyBtn.classList = "";
-        liftOffBtn.classList = "";
+        choiceABtn.classList = "";
+        choiceBBtn.classList = "";
         startButton.classList.add("hidden");
     }
 }
@@ -45,33 +48,73 @@ startButton.addEventListener("click", function(e) {
 //create a way to advance to scene 2, based on user's choice of button
 
 let Scene = class {
-    constructor(backgroundcolor, textcolor, ptext) {
+    constructor(backgroundcolor, textcolor, ptext, photocredittext, backgroundimage, missiontext) {
         this.backgroundcolor = backgroundcolor;
         this.textcolor = textcolor;
         this.ptext = ptext;
+        this.photocredittext = photocredittext;
+        this.backgroundimage = backgroundimage;
+        this.missiontext = missiontext;
     }
 
     fadeIn() {     
             body.style.backgroundColor = `${this.backgroundcolor}`;
             body.style.transition = "all 3s ease-in-out";
+            header1.style.color = `${this.backgroundcolor}`;
+            header1.style.transition = "all 3s ease-in-out";
     }
 
     changeP() {
-        paragraph.textContent = `${this.ptext}`;
+        paragraph.style.color = `${this.textcolor}`;
         paragraph.style.transition = "all 3s ease-in-out";
+        paragraph.textContent = `${this.ptext}`;
+    }
+
+    addPhotoCredit() {
+        photoCredit.style.marginTop = "40em";
+        photoCredit.style.fontSize = ".7rem";
+        photoCredit.style.transition = "all 3s ease-in-out";
+        photoCredit.style.color = `lightgrey`;
+        photoCredit.textContent = `${this.photocredittext}`; 
+        helloDiv.append(photoCredit);
+    }
+
+    addBackgroundImage() {
+        body.style.backgroundImage = `url(${this.backgroundimage})`;
+        header1.textContent = `${this.missiontext}`;
+        header1.style.color = "white";
+        body.style.transition = "all 3s ease-in-out";
+        header1.style.transition = "all 3s ease-in-out";
     }
 
 }
 
-liftOffBtn.addEventListener("click", function(e) {
+choiceABtn.addEventListener("click", function(e) {
     e.preventDefault();
     greet1.innerText = "";
-    scene1 = new Scene("indigo", "navy", `You're right PAL, we have a job to do.  
-    Amazing scientific discovery or not, I've get to get these people to their new home before we lose too much of the solar wind.`);
+    inputElement.style.display = "none";
+    choiceABtn.classList.add("hidden");
+    choiceBBtn.classList.add("hidden");
+    scene1 = new Scene(`indigo`, `aqua`, `You're right PAL, we have a job to do.  
+    Amazing scientific discovery or not, I've get to get these people to their new home before we lose too much of the solar wind.`, `Photo by mohammad alizade on Unsplash`,
+    `/Users/casvalkyriespicer/Documents/GitHub/oop-space-odyssey/pics/marsinspace.jpeg`, `MARS MISSION: COMPLETE`);
     setTimeout(function() {
         scene1.fadeIn();
     }, 3500);
     setTimeout(function() {
         scene1.changeP();
+    }, 3500)
+    setTimeout(function() {
+        scene1.addPhotoCredit();
+    }, 3500)
+
+    paragraph.addEventListener("mouseover", function(e) {
+        e.preventDefault();
+             scene1.addBackgroundImage()
+             paragraph.textContent = `Excellent work, ${person1.name}.  Should we debreif and take shore leave?`;
+             paragraph.style.transition = "all 3s ease-in-out";
+             choiceABtn.classList.remove("hidden");
+             choiceBBtn.classList.remove("hidden");
     })
 })
+
