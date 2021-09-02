@@ -3,8 +3,8 @@ let body = document.querySelector("body");
 const userName = document.getElementById("name");
 const startButton = document.querySelector(".startBtn");
 const helloDiv = document.querySelector(".hello__div");
-const choiceABtn = document.getElementById("hello__liftoffbtn")
-const choiceBBtn = document.getElementById("hello__anomalybtn");
+const choiceABtn = document.getElementById("hello__btn--choiceA")
+const choiceBBtn = document.getElementById("hello__btn--choiceB");
 const paragraph = document.querySelector(".hero__p");
 const header1 = document.querySelector("h1");
 const inputElement = document.querySelector("input");
@@ -85,6 +85,8 @@ let Scene = class {
     }
 }
 
+//create a way to render the scene for first choice A, initiate liftoff!
+
 choiceABtn.addEventListener("click", function(e) {
     e.preventDefault();
     greet1.innerText = "";
@@ -106,6 +108,8 @@ choiceABtn.addEventListener("click", function(e) {
              scene1.addBackgroundImage()
              paragraph.textContent = `HAL: Excellent work, ${person1.name}.  Should we debreif and take shore leave?`;
              paragraph.style.transition = "all 3s ease-in-out";
+             choiceABtn.textContent = `No, let's take a rover across the surface.`
+             choiceBBtn.textContent = `Yes, but first you and I need to talk.`
              body.removeChild(helloDiv);
              choiceABtn.classList.remove("hidden");
              choiceBBtn.classList.remove("hidden");
@@ -114,8 +118,44 @@ choiceABtn.addEventListener("click", function(e) {
              input.style.margin = "0";
              paragraph.style.margin = "0";
              paragraph.style.padding = "0";
-             choiceABtn.textContent = `No, let's take a rover across the surface.`
-             choiceBBtn.textContent = `Yes, but first you and I need to talk.`
+             
     })
 })
 
+//create a way to render the scene for first choice B, investigate the anomaly!
+
+choiceBBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+    greet1.innerText = "";
+    inputElement.style.display = "none";
+    choiceABtn.classList.add("hidden");
+    choiceBBtn.classList.add("hidden");
+        scene1Alt = new Scene(`red`, `lightgrey`, `This opportunity is once in a lifetime.  I don't care if I get reprimanded, PAL. I have to take a quick detour to investigate!`,
+        `photo by Aldebaran S on Unsplash`, `/Users/casvalkyriespicer/Documents/GitHub/oop-space-odyssey/pics/aldebaran-nebula.jpeg`, `SECTION X216: 90 Thousand Light Years from the X216 Anomaly`);
+    setTimeout(function() {
+        scene1.fadeIn();
+    }, 2500);
+    setTimeout(function() {
+        scene1.changeP();
+    }, 2500)
+
+    paragraph.addEventListener("mouseover", function(e) {
+        e.preventDefault();
+             scene1.addBackgroundImage()
+             paragraph.textContent = `HAL: Welcome to Milky Way Section X216, Anomaly of unknown origin.  By my calculations, this is an active superheated gaseous nebula spinning 36 million
+             times per second and generating a find cosmic dust containing every element in the periodic table, including 11 not yet identified.`;
+             paragraph.style.transition = "all 3s ease-in-out";
+             choiceABtn.textContent = `Take me in closer HAL.`
+             choiceBBtn.textContent = `Please perform a full spectral analysis, HAL.`
+             body.removeChild(helloDiv);
+             choiceABtn.classList.remove("hidden");
+             choiceBBtn.classList.remove("hidden");
+             choiceABtn.style.margin = "0 .5em 0 .5em";
+             choiceBBtn.style.margin = "0 .5em 0 .5em";
+             input.style.margin = "0";
+             paragraph.style.margin = "0";
+             paragraph.style.padding = "0";
+             
+    })
+
+})
