@@ -129,24 +129,25 @@ choiceBBtn.addEventListener("click", function(e) {
     greet1.innerText = "";
     inputElement.style.display = "none";
     choiceABtn.classList.add("hidden");
-    choiceBBtn.classList.add("hidden");
-        scene1Alt = new Scene(`red`, `lightgrey`, `This opportunity is once in a lifetime.  I don't care if I get reprimanded, PAL. I have to take a quick detour to investigate!`,
+    choiceBBtn.classList.add("hidden"); 
+    //alt text colors: #E0FEF2 , #CBFEEA . alt background colors: #3E0000
+        scene1Alt = new Scene(`#400020`, `#67FCC2`, `This opportunity is once in a lifetime.  I don't even care if I get reprimanded, PAL. I have to take a quick detour to investigate!`,
         `photo by Aldebaran S on Unsplash`, `/Users/casvalkyriespicer/Documents/GitHub/oop-space-odyssey/pics/aldebaran-nebula.jpeg`, `SECTION X216: 90 Thousand Light Years from the X216 Anomaly`);
     setTimeout(function() {
-        scene1.fadeIn();
+        scene1Alt.fadeIn();
     }, 2500);
     setTimeout(function() {
-        scene1.changeP();
+        scene1Alt.changeP();
     }, 2500)
 
     paragraph.addEventListener("mouseover", function(e) {
         e.preventDefault();
-             scene1.addBackgroundImage()
+             scene1Alt.addBackgroundImage()
              paragraph.textContent = `HAL: Welcome to Milky Way Section X216, Anomaly of unknown origin.  By my calculations, this is an active superheated gaseous nebula spinning 36 million
              times per second and generating a find cosmic dust containing every element in the periodic table, including 11 not yet identified.`;
              paragraph.style.transition = "all 3s ease-in-out";
              choiceABtn.textContent = `Take me in closer HAL.`
-             choiceBBtn.textContent = `Please perform a full spectral analysis, HAL.`
+             choiceBBtn.textContent = `HAL, please perform a full spectral analysis.`
              body.removeChild(helloDiv);
              choiceABtn.classList.remove("hidden");
              choiceBBtn.classList.remove("hidden");

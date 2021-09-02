@@ -27,8 +27,8 @@ body {
 }
 
 .startBtn,
-#hello__liftoffbtn,
-#hello__anomalybtn {
+#hello__btn--choiceA,
+#hello__btn--choiceB {
     margin: 1em;
     background-color: var(--pastelindigo);
     background: transparent linear-gradient(270deg, #9797fa 0%, #D8A8FA, #D4B4F4 100%) 0% 0% no-repeat padding-box; 
