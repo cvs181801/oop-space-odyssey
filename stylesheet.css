@@ -31,6 +31,7 @@ body {
 #hello__anomalybtn {
     margin: 1em;
     background-color: var(--pastelindigo);
+    background: transparent linear-gradient(270deg, #9797fa 0%, #D8A8FA, #D4B4F4 100%) 0% 0% no-repeat padding-box; 
     border-radius: 7px;
     font-family: inherit;
 }
@@ -48,4 +49,5 @@ input {
     font-family: inherit;
     margin-bottom: 1.5em;
     background-color: var(--cornflower);
+    background: transparent linear-gradient(270deg, #9797fa 0%, #D8A8FA, #D4B4F4 100%) 0% 0% no-repeat padding-box; 
 }
