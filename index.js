@@ -8,7 +8,7 @@ const choiceBBtn = document.getElementById("hello__anomalybtn");
 const paragraph = document.querySelector(".hero__p");
 const header1 = document.querySelector("h1");
 const inputElement = document.querySelector("input");
-const photoCredit = document.createElement("p");
+const photoCredit = document.querySelector(".photocredit");
 
 //test area!
 console.log(document.body);
@@ -70,23 +70,19 @@ let Scene = class {
         paragraph.textContent = `${this.ptext}`;
     }
 
-    addPhotoCredit() {
+    addBackgroundImage() {
+        body.style.backgroundImage = `url(${this.backgroundimage})`;
+        header1.textContent = `${this.missiontext}`;
+        header1.style.color = "white";
+        body.style.backgroundPosition = "center";
+        body.style.transition = "all 3s ease-in-out";
+        header1.style.transition = "all 3s ease-in-out";
         photoCredit.style.marginTop = "40em";
         photoCredit.style.fontSize = ".7rem";
         photoCredit.style.transition = "all 3s ease-in-out";
         photoCredit.style.color = `lightgrey`;
         photoCredit.textContent = `${this.photocredittext}`; 
-        helloDiv.append(photoCredit);
     }
-
-    addBackgroundImage() {
-        body.style.backgroundImage = `url(${this.backgroundimage})`;
-        header1.textContent = `${this.missiontext}`;
-        header1.style.color = "white";
-        body.style.transition = "all 3s ease-in-out";
-        header1.style.transition = "all 3s ease-in-out";
-    }
-
 }
 
 choiceABtn.addEventListener("click", function(e) {
@@ -100,21 +96,26 @@ choiceABtn.addEventListener("click", function(e) {
     `/Users/casvalkyriespicer/Documents/GitHub/oop-space-odyssey/pics/marsinspace.jpeg`, `MARS MISSION: COMPLETE`);
     setTimeout(function() {
         scene1.fadeIn();
-    }, 3500);
+    }, 2500);
     setTimeout(function() {
         scene1.changeP();
-    }, 3500)
-    setTimeout(function() {
-        scene1.addPhotoCredit();
-    }, 3500)
+    }, 2500)
 
     paragraph.addEventListener("mouseover", function(e) {
         e.preventDefault();
              scene1.addBackgroundImage()
-             paragraph.textContent = `Excellent work, ${person1.name}.  Should we debreif and take shore leave?`;
+             paragraph.textContent = `HAL: Excellent work, ${person1.name}.  Should we debreif and take shore leave?`;
              paragraph.style.transition = "all 3s ease-in-out";
+             body.removeChild(helloDiv);
              choiceABtn.classList.remove("hidden");
              choiceBBtn.classList.remove("hidden");
+             choiceABtn.style.margin = "0 .5em 0 .5em";
+             choiceBBtn.style.margin = "0 .5em 0 .5em";
+             input.style.margin = "0";
+             paragraph.style.margin = "0";
+             paragraph.style.padding = "0";
+             choiceABtn.textContent = `No, let's take a rover across the surface.`
+             choiceBBtn.textContent = `Yes, but first you and I need to talk.`
     })
 })
 
