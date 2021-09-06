@@ -117,8 +117,7 @@ choiceABtn.addEventListener("click", function(e) {
              choiceBBtn.style.margin = "0 .5em 0 .5em";
              input.style.margin = "0";
              paragraph.style.margin = "0";
-             paragraph.style.padding = "0";
-             
+             paragraph.style.padding = "0";    
     })
 })
 
