@@ -9,6 +9,8 @@ const choiceCBtn = document.getElementById("hello__btn--choiceC");
 const choiceDBtn = document.getElementById("hello__btn--choiceD");
 const choiceEBtn = document.getElementById("hello__btn--choiceE");
 const choiceFBtn = document.getElementById("hello__btn--choiceF");
+const choiceGBtn = document.getElementById("hello__btn--choiceG");
+const choiceHBtn = document.getElementById("hello__btn--choiceH");
 const paragraph = document.querySelector(".hero__p");
 const header1 = document.querySelector("h1");
 const inputElement = document.querySelector("input");
@@ -97,7 +99,7 @@ choiceABtn.addEventListener("click", function(e) {
     inputElement.style.display = "none";
     choiceABtn.classList.add("hidden");
     choiceBBtn.classList.add("hidden");
-        scene1 = new Scene(`indigo`, `aqua`, `PAL: Excellent work, ${person1.name}.  We've arrived at Mars
+      var scene1 = new Scene(`indigo`, `aqua`, `PAL: Excellent work, ${person1.name}.  We've arrived at Mars
         without incident.  The passengers have alread begun to offload the necessary resources to build 
         a flourishing settlement.  Should we debrief and take shore leave?`, `Photo by mohammad alizade on Unsplash`,
     `/Users/casvalkyriespicer/Documents/GitHub/oop-space-odyssey/pics/marsinspace.jpeg`, `MARS MISSION: COMPLETE`);
@@ -106,8 +108,8 @@ choiceABtn.addEventListener("click", function(e) {
     }, 2500);
      setTimeout(function(){
         scene1.changeP()}, 3500);
-    
-        
+
+
    setTimeout(function() {
              scene1.addBackgroundImage()
              paragraph.textContent = `You're right PAL, we have a job to do.  
@@ -122,14 +124,9 @@ choiceABtn.addEventListener("click", function(e) {
              choiceDBtn.style.margin = "0 .5em 0 .5em";
              input.style.margin = "0";
              paragraph.style.margin = "0";
-<<<<<<< HEAD
-             paragraph.style.padding = "0";    
-    })
-=======
              paragraph.style.padding = "0";
-             
+
     });
->>>>>>> 655fc8f6a4ac76091d0d47f4fd05f65bdde41d46
 })
 
 //create a way to render the scene for first choice B, investigate the anomaly!
@@ -142,7 +139,7 @@ choiceBBtn.addEventListener("click", function(e) {
     choiceABtn.classList.add("hidden");
     choiceBBtn.classList.add("hidden"); 
     //alt text colors: #E0FEF2 , #CBFEEA . alt background colors: #3E0000
-        scene1Alt = new Scene(`#400020`, `#67FCC2`, `PAL: Welcome to Milky Way Section X216, Anomaly of unknown origin.  By my calculations, this is an active superheated gaseous nebula spinning 36 million
+       var scene1Alt = new Scene(`#400020`, `#67FCC2`, `PAL: Welcome to Milky Way Section X216, Anomaly of unknown origin.  By my calculations, this is an active superheated gaseous nebula spinning 36 million
         times per second and generating a fine cosmic dust containing every element in the periodic table, including 11 not yet identified.`,
         `photo by Aldebaran S on Unsplash`, `/Users/casvalkyriespicer/Documents/GitHub/oop-space-odyssey/pics/aldebaran-nebula.jpeg`, `SECTION X216: 90 Thousand Light Years from the X216 Anomaly`);
     setTimeout(function() {
@@ -165,7 +162,39 @@ choiceBBtn.addEventListener("click", function(e) {
              input.style.margin = "0";
              paragraph.style.margin = "0";
              paragraph.style.padding = "0";
-             
+
     }, 2500);
 
+});
+
+choiceCBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+    greet1.innerText = "";
+    paragraph.innerText = "";
+    inputElement.style.display = "none";
+    choiceCBtn.classList.add("hidden");
+    choiceDBtn.classList.add("hidden");
+    var scene2 = new Scene(`#400020`, `#67FCC2`, `You see a message on your rover's HUD. It states 'Anomaly Detected: Unidentified Lifeform two kilometers north'`,
+        `photo by Aldebaran S on Unsplash`, `/Users/casvalkyriespicer/Documents/GitHub/oop-space-odyssey/pics/aldebaran-nebula.jpeg`, `MARTIAN SURFACE`);  
+        setTimeout(function() {
+            scene2.fadeIn();
+        }, 4500);
+        setTimeout(function() {
+            scene2.changeP()}, 5500);
+
+            setTimeout(function(){
+                scene2.addBackgroundImage()
+                paragraph.textContent = `You put on your pressurized suit and protective gear.  You drive the rover out onto the
+                martian soil.  You drive past the fledgling settlements and the martian horizon stretches before you.`;
+                paragraph.style.transition = "all 3s ease-in-out";
+                choiceEBtn.textContent = `Investigate Anomaly`
+                choiceFBtn.textContent = `Return to the settlement`
+                choiceEBtn.classList.remove("hidden");
+                choiceFBtn.classList.remove("hidden");
+                choiceEBtn.style.margin = "0 .5em 0 .5em";
+                choiceFBtn.style.margin = "0 .5em 0 .5em";
+                input.style.margin = "0";
+                paragraph.style.margin = "0";
+                paragraph.style.padding = "0";
+    }, 2500);
 });
