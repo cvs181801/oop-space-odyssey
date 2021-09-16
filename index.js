@@ -91,7 +91,7 @@ let Scene = class {
         body.style.backgroundPosition = "center";
         body.style.transition = "all 3s ease-in-out";
         header1.style.transition = "all 3s ease-in-out";
-        photoCredit.style.marginTop = "40em";
+        photoCredit.style.marginTop = "45em";
         photoCredit.style.fontSize = ".7rem";
         photoCredit.style.transition = "all 3s ease-in-out";
         photoCredit.style.color = `lightgrey`;
@@ -135,9 +135,11 @@ choiceABtn.addEventListener("click", function(e) {
              inputElement.style.margin = "0";
              paragraph.style.margin = ".5em";
              paragraph.style.padding = ".5em";
-        }, 9500);
+            }, 9500);
+
     setTimeout(function(){
-        scene1.changeP()}, 12500);
+        scene1.changeP()
+    }, 12500);
 })
 
 //create a way to render the scene for first choice B, investigate the anomaly!
@@ -155,14 +157,16 @@ choiceBBtn.addEventListener("click", function(e) {
         `photo by Aldebaran S on Unsplash`, `/Users/casvalkyriespicer/Documents/GitHub/oop-space-odyssey/pics/aldebaran-nebula.jpeg`, `SECTION X216: 90 Thousand Light Years from the X216 Anomaly`);
     setTimeout(function() {
         scene1Alt.fadeIn();
+        paragraph.style.transition = "all 3s ease-in-out";
+        paragraph.textContent = `This opportunity is once in a lifetime.  I don't even care if I get reprimanded, PAL. I have to take a quick detour to investigate!`;
     }, 2500);
+
     setTimeout(function() {
-        scene1Alt.changeP()}, 5500);
+        scene1Alt.fadeOut()
+    }, 6500);
 
     setTimeout(function(){
              scene1Alt.addBackgroundImage()
-             paragraph.textContent = `This opportunity is once in a lifetime.  I don't even care if I get reprimanded, PAL. I have to take a quick detour to investigate!`;
-             paragraph.style.transition = "all 3s ease-in-out";
              choiceEBtn.textContent = `Take me in closer PAL.`
              choiceFBtn.textContent = `PAL, please perform a full spectrum analysis.`
              body.removeChild(helloDiv);
@@ -171,10 +175,13 @@ choiceBBtn.addEventListener("click", function(e) {
              choiceEBtn.style.margin = "0 .5em 0 .5em";
              choiceFBtn.style.margin = "0 .5em 0 .5em";
              //input.style.margin = "0";
-             paragraph.style.margin = "0";
-             paragraph.style.padding = "0";
+             paragraph.style.margin = ".5em";
+             paragraph.style.padding = ".5em";
+    }, 9500);
 
-    }, 2500);
+    setTimeout(function() {
+        scene1Alt.changeP()
+    }, 12500);
 
 });
 
