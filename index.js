@@ -55,13 +55,14 @@ startButton.addEventListener("click", function(e) {
 //create a way to advance to scene 2, based on user's choice of button
 
 let Scene = class {
-    constructor(backgroundcolor, textcolor, ptext, photocredittext, backgroundimage, missiontext) {
+    constructor(backgroundcolor, textcolor, ptext, photocredittext, backgroundimage, missiontext, header1color) {
         this.backgroundcolor = backgroundcolor;
         this.textcolor = textcolor;
         this.ptext = ptext;
         this.photocredittext = photocredittext;
         this.backgroundimage = backgroundimage;
         this.missiontext = missiontext;
+        this.header1color = header1color;
     }
 
     fadeIn() {     
@@ -87,7 +88,7 @@ let Scene = class {
     addBackgroundImage() {
         body.style.backgroundImage = `url(${this.backgroundimage})`;
         header1.textContent = `${this.missiontext}`;
-        header1.style.color = "white";
+        header1.style.color = `${this.header1color}`;
         body.style.backgroundPosition = "center";
         body.style.transition = "all 3s ease-in-out";
         header1.style.transition = "all 3s ease-in-out";
@@ -96,6 +97,14 @@ let Scene = class {
         photoCredit.style.transition = "all 3s ease-in-out";
         photoCredit.style.color = `lightgrey`;
         photoCredit.textContent = `${this.photocredittext}`; 
+    }
+
+    removeBackgroundImage() {
+        body.style.backgroundImage = ``;
+        body.style.transition = "all 3s ease-in-out";
+        header1.textContent = ``;
+        photoCredit.textContent = ``;
+        photoCredit.style.transition = "all 3s ease-in-out";
     }
 }
 
@@ -111,7 +120,7 @@ choiceABtn.addEventListener("click", function(e) {
       var scene1 = new Scene(`indigo`, `aqua`, `PAL: Excellent work, ${person1.name}.  We've arrived at Mars
         without incident.  The passengers have alread begun to offload the necessary resources to build 
         a flourishing settlement.  Should we debrief and take shore leave?`, `Photo by mohammad alizade on Unsplash`,
-    `/Users/casvalkyriespicer/Documents/GitHub/oop-space-odyssey/pics/marsinspace.jpeg`, `MARS MISSION: COMPLETE`);
+    `/Users/casvalkyriespicer/Documents/GitHub/oop-space-odyssey/pics/marsinspace.jpeg`, `MARS MISSION: COMPLETE`, `white`);
     setTimeout(function() {
         scene1.fadeIn();
         paragraph.style.transition = "all 3s ease-in-out";
@@ -154,7 +163,7 @@ choiceBBtn.addEventListener("click", function(e) {
     //alt text colors: #E0FEF2 , #CBFEEA . alt background colors: #3E0000
        var scene1Alt = new Scene(`#400020`, `#67FCC2`, `PAL: Welcome to Milky Way Section X216, Anomaly of unknown origin.  By my calculations, this is an active superheated gaseous nebula spinning 36 million
         times per second and generating a fine cosmic dust containing every element in the periodic table, including 11 not yet identified.`,
-        `photo by Aldebaran S on Unsplash`, `/Users/casvalkyriespicer/Documents/GitHub/oop-space-odyssey/pics/aldebaran-nebula.jpeg`, `SECTION X216: 90 Thousand Light Years from the X216 Anomaly`);
+        `photo by Aldebaran S on Unsplash`, `/Users/casvalkyriespicer/Documents/GitHub/oop-space-odyssey/pics/aldebaran-nebula.jpeg`, `SECTION X216: 90 Thousand Light Years from the X216 Anomaly`, `white`);
     setTimeout(function() {
         scene1Alt.fadeIn();
         paragraph.style.transition = "all 3s ease-in-out";
@@ -185,6 +194,8 @@ choiceBBtn.addEventListener("click", function(e) {
 
 });
 
+//create a way to render the scene for first choice C (take a rover across surface) after choice A (initiate liftoff):
+
 choiceCBtn.addEventListener("click", function(e) {
     e.preventDefault();
     greet1.innerText = "";
@@ -192,19 +203,26 @@ choiceCBtn.addEventListener("click", function(e) {
     inputElement.style.display = "none";
     choiceCBtn.classList.add("hidden");
     choiceDBtn.classList.add("hidden");
-    var scene2 = new Scene(`#400020`, `#67FCC2`, `You see a message on your rover's HUD. It states 'Anomaly Detected: Unidentified Lifeform two kilometers north'`,
-        `photo by Aldebaran S on Unsplash`, `/Users/casvalkyriespicer/Documents/GitHub/oop-space-odyssey/pics/aldebaran-nebula.jpeg`, `MARTIAN SURFACE`);  
+    var scene2 = new Scene(`peru`, `#332B00`, `You see a message on your rover's HUD. It states 'Anomaly Detected: Unidentified Lifeform two kilometers north'`,
+        `photo by Aldebaran S on Unsplash`, `/Users/casvalkyriespicer/Documents/GitHub/oop-space-odyssey/pics/marsrover.jpeg`, `MARTIAN SURFACE`, `#7F0000`);  
+        
+        setTimeout(function() {
+            scene2.removeBackgroundImage()
+        }, 1000);
+
         setTimeout(function() {
             scene2.fadeIn();
-        }, 4500);
+            paragraph.style.transition = "all 3s ease-in-out";
+            paragraph.textContent = `You put on your pressurized suit and protective gear.  You drive the rover out onto the
+                martian soil.  You drive past the fledgling settlements and the martian horizon stretches before you.`;      
+        }, 2500);
+
         setTimeout(function() {
-            scene2.changeP()}, 5500);
+            scene2.fadeOut()
+        }, 6500);
 
             setTimeout(function(){
                 scene2.addBackgroundImage()
-                paragraph.textContent = `You put on your pressurized suit and protective gear.  You drive the rover out onto the
-                martian soil.  You drive past the fledgling settlements and the martian horizon stretches before you.`;
-                paragraph.style.transition = "all 3s ease-in-out";
                 choiceEBtn.textContent = `Investigate Anomaly`
                 choiceFBtn.textContent = `Return to the settlement`
                 choiceEBtn.classList.remove("hidden");
@@ -212,7 +230,11 @@ choiceCBtn.addEventListener("click", function(e) {
                 choiceEBtn.style.margin = "0 .5em 0 .5em";
                 choiceFBtn.style.margin = "0 .5em 0 .5em";
                 //input.style.margin = "0";
-                paragraph.style.margin = "0";
-                paragraph.style.padding = "0";
-    }, 2500);
+                paragraph.style.margin = ".5em";
+                paragraph.style.padding = ".5em";
+    }, 9500);
+
+        setTimeout(function() {
+            scene2.changeP()
+        }, 12500);
 });
