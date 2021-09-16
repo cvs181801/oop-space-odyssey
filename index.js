@@ -223,8 +223,8 @@ choiceCBtn.addEventListener("click", function(e) {
 
             setTimeout(function(){
                 scene2.addBackgroundImage()
-                choiceEBtn.textContent = `Investigate Anomaly`
-                choiceFBtn.textContent = `Return to the settlement`
+                choiceEBtn.textContent = `Investigate Lifeform`
+                choiceFBtn.textContent = `Return to the Settlement`
                 choiceEBtn.classList.remove("hidden");
                 choiceFBtn.classList.remove("hidden");
                 choiceEBtn.style.margin = "0 .5em 0 .5em";
@@ -238,3 +238,50 @@ choiceCBtn.addEventListener("click", function(e) {
             scene2.changeP()
         }, 12500);
 });
+
+//create a way to render a new scene for choice D, 'yes but first you and I need to talk' - shore leave:
+
+choiceDBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+    greet1.innerText = "";
+    paragraph.innerText = "";
+    inputElement.style.display = "none";
+    choiceCBtn.classList.add("hidden");
+    choiceDBtn.classList.add("hidden");
+    var scene2Alt = new Scene(`grey`, `#CCCCCC`, `Oh, you're looking for information on the God star? That's what we call it around here. My friend here can give you insider information - in fact, we're due for a sighting in a few hours.`,
+        `Photo by RODNAE Productions from Pexels`, `/Users/casvalkyriespicer/Documents/GitHub/oop-space-odyssey/pics/marslocals.jpeg`, `Mars Majorus, Established 2071`, `#D5BEBE`);  
+        
+        setTimeout(function() {
+            scene2Alt.removeBackgroundImage()
+        }, 1000);
+
+        setTimeout(function() {
+            scene2Alt.fadeIn();
+            paragraph.style.transition = "all 3s ease-in-out";
+            paragraph.textContent = `PAL, this is important: Erase our conversation from before about exploring the anomaly, then record all data from the flight log and download it into the main computer.  I'm going to try to find some information on that anomaly from the locals.  PAL: I will, ${person1.name}.  Don't worry.  your secret is safe with me.`;      
+        }, 2500);
+
+        setTimeout(function() {
+            scene2Alt.fadeOut()
+        }, 6500);
+
+            setTimeout(function(){
+                scene2Alt.addBackgroundImage()
+                choiceEBtn.textContent = `Investigate Lifeform`
+                choiceFBtn.textContent = `Return to the Settlement`
+                choiceEBtn.classList.remove("hidden");
+                choiceFBtn.classList.remove("hidden");
+                choiceEBtn.style.margin = "0 .5em 0 .5em";
+                choiceFBtn.style.margin = "0 .5em 0 .5em";
+                //input.style.margin = "0";
+                paragraph.style.margin = ".5em";
+                paragraph.style.padding = ".5em";
+    }, 9500);
+
+        setTimeout(function() {
+            scene2Alt.changeP()
+        }, 12500);
+
+})
+
+//PAL, I'm going out there.  But this stays off the flight log.  Clear?  We wouldn't want flight control knowing of our little diversion.  PAL: Understood, ${person1.name}. Disabling flight log now.
