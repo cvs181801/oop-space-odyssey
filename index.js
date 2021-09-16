@@ -19,6 +19,9 @@ const photoCredit = document.querySelector(".photocredit");
 //test area!
 console.log(document.body);
 
+//add some style
+paragraph.style.padding = "1em";
+
 // create a way to make characters based on user input and choices. use ES6 syntax this time 
 
 //start the journey:
@@ -68,6 +71,12 @@ let Scene = class {
         body.style.transition = "all 3s ease-in-out";
         header1.style.color = `${this.backgroundcolor}`;
         header1.style.transition = "all 3s ease-in-out";
+        paragraph.style.color = `${this.textcolor}`;
+        paragraph.style.transition = "all 3s ease-in-out";
+    }
+
+    fadeOut() {
+        paragraph.style.color = `${this.backgroundcolor}`;
         paragraph.style.transition = "all 3s ease-in-out";
     }
 
@@ -106,16 +115,17 @@ choiceABtn.addEventListener("click", function(e) {
     `/Users/casvalkyriespicer/Documents/GitHub/oop-space-odyssey/pics/marsinspace.jpeg`, `MARS MISSION: COMPLETE`);
     setTimeout(function() {
         scene1.fadeIn();
-    }, 2500);
-     setTimeout(function(){
-        scene1.changeP()}, 3500);
+        paragraph.style.transition = "all 3s ease-in-out";
+        paragraph.textContent = `You're right PAL, we have a job to do.  
+        Amazing scientific discovery or not, I've get to get these people to their new home before we lose too much of the solar wind.`;
+    }, 3500);
 
+    setTimeout(function() {
+        scene1.fadeOut()
+    }, 6500);
 
    setTimeout(function() {
              scene1.addBackgroundImage()
-             paragraph.style.transition = "all 3s ease-in-out";
-             paragraph.textContent = `You're right PAL, we have a job to do.  
-             Amazing scientific discovery or not, I've get to get these people to their new home before we lose too much of the solar wind.`;
              choiceCBtn.textContent = `No, let's take a rover across the surface.`
              choiceDBtn.textContent = `Yes, but first you and I need to talk.`
              body.removeChild(helloDiv);
@@ -123,11 +133,12 @@ choiceABtn.addEventListener("click", function(e) {
              choiceDBtn.classList.remove("hidden");
              choiceCBtn.style.margin = "0 .5em 0 .5em";
              choiceDBtn.style.margin = "0 .5em 0 .5em";
-             //input.style.margin = "0";
+             inputElement.style.margin = "0";
              paragraph.style.margin = "0";
              paragraph.style.padding = "0";
-
-    }, 3500);
+        }, 8500);
+    setTimeout(function(){
+        scene1.changeP()}, 12500);
 })
 
 //create a way to render the scene for first choice B, investigate the anomaly!
