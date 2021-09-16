@@ -19,8 +19,6 @@ const photoCredit = document.querySelector(".photocredit");
 //test area!
 console.log(document.body);
 
-//add some style
-paragraph.style.padding = "1em";
 
 // create a way to make characters based on user input and choices. use ES6 syntax this time 
 
@@ -106,6 +104,7 @@ let Scene = class {
 choiceABtn.addEventListener("click", function(e) {
     e.preventDefault();
     greet1.innerText = "";
+    paragraph.style.padding = "1em";
     inputElement.style.display = "none";
     choiceABtn.classList.add("hidden");
     choiceBBtn.classList.add("hidden");
@@ -118,7 +117,7 @@ choiceABtn.addEventListener("click", function(e) {
         paragraph.style.transition = "all 3s ease-in-out";
         paragraph.textContent = `You're right PAL, we have a job to do.  
         Amazing scientific discovery or not, I've get to get these people to their new home before we lose too much of the solar wind.`;
-    }, 3500);
+    }, 2500);
 
     setTimeout(function() {
         scene1.fadeOut()
@@ -134,9 +133,9 @@ choiceABtn.addEventListener("click", function(e) {
              choiceCBtn.style.margin = "0 .5em 0 .5em";
              choiceDBtn.style.margin = "0 .5em 0 .5em";
              inputElement.style.margin = "0";
-             paragraph.style.margin = "0";
-             paragraph.style.padding = "0";
-        }, 8500);
+             paragraph.style.margin = ".5em";
+             paragraph.style.padding = ".5em";
+        }, 9500);
     setTimeout(function(){
         scene1.changeP()}, 12500);
 })

@@ -28,7 +28,13 @@ body {
 
 .startBtn,
 #hello__btn--choiceA,
-#hello__btn--choiceB {
+#hello__btn--choiceB,
+#hello__btn--choiceC,
+#hello__btn--choiceD,
+#hello__btn--choiceE,
+#hello__btn--choiceF,
+#hello__btn--choiceG,
+#hello__btn--choiceH {
     margin: 1em;
     background-color: var(--pastelindigo);
     background: transparent linear-gradient(270deg, #9797fa 0%, #D8A8FA, #D4B4F4 100%) 0% 0% no-repeat padding-box; 
@@ -43,6 +49,12 @@ h1 {
 p {
     margin-bottom: 1.5em;
     padding: 1.2em;
+    /*border: 2px solid red;*/
+}
+.hero__p {
+    margin-bottom: 1.5em;
+    padding: 1.2em;
+    /*border: 2px solid goldenrod;*/
 }
 
 input {
